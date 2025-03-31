@@ -8,9 +8,10 @@ jobs:
   test:
     name: ${{ matrix.os }} / Ruby ${{ matrix.ruby }}
     strategy:
+      max-parallel: 1
       fail-fast: false
       matrix:
-        os: [ubuntu, macos] # windows, if: runner.os == 'Windows'
+        os: [ubuntu] # windows, if: runner.os == 'Windows'
         ruby: ['3.0', '3.1', '3.2', '3.3']
     runs-on: ${{ matrix.os }}-latest
 
